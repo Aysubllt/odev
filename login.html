@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Giriş Sayfası</title>
+        <link rel="stylesheet" href="css/index.css">
+
+
+
+    </script>
+    </head>
+    <body>
+
+        <div class="login">
+            <div class="box">
+                <div class="welcome">Giriş Sayfası</div>
+                <form id="loginForm" onsubmit="return validateLoginForm()">
+                    <div class="giris">
+                        <input type="text" id="username" placeholder="kullanıcı adı veya e-mail"><br>
+                        <input type="password" id="password" placeholder="Şifre"><br>
+                        <input type="submit" value="GİRİŞ">
+                    </div>
+               </form>
+            </div>
+        </div>
+
+
+        <script>
+            function validateLoginForm() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                //Kullanıcı adı ve şifre kontrolü
+                if (username === "b231210055@ogr.sakarya.edu.tr" && password === "b231210055") {
+
+                    // Giriş başarılı olduğunda yapılacak işlemler buraya eklenebilir
+                    window.location.href = "index2.html"; // index2.html'e yönlendirme
+                    return true;
+                } else {
+                    alert("Kullanıcı adı veya şifre hatalı.");
+                    // Kullanıcı adı veya şifre hatalı olduğunda sayfayı yeniden yükle
+                    location.reload();
+                    return false;
+                }
+            }    
+        </script>
+    </body>
+    </html>
