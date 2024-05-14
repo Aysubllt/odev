@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>İLETİŞİM SAYFASI</title>
+    <link rel="stylesheet" href="iletisim.css">
+</head>
+<body>
+    <section id="contact">
+        <div class="container">
+            <h1 class="title">Contact</h1>
+            <div class="contact-area">
+                <div class="cont-left">
+                    <div class="cont-top">
+                        <div class="cont-element">
+                            <i class="far fa-address-card"></i>
+                            <address>Sakarya/Turkey</address>
+                        </div>
+                        <div class="cont-element">
+                            <i class="far fa-phone-alt"></i>
+                            <a href="mailto:aysu.bllt@gmail.com">aysu.bllt@gmail.com</a>
+                        </div>
+                        <div class="cont-element">
+                            <i class="far fa-phone-alt"></i>
+                            <a href="tel +905458695404"></a>
+                        </div>    
+                    </div>
+                </div>
+                <div class="cont-right">
+                    <form action="">
+                        <input type="text"name="text" id="text" placeholder="Full Name">
+                        <input type="email"name="email" id="email" placeholder="Email">
+                        <textarea name="message" id="message" rows="10" placeholder="Message"></textarea>
+                        <button>SEND</button>
+                    </form>
+                </div>        
+            </div>
+        </div>
+    </section>
+    <script>
+        function saveToTextFile() {
+            var fullName=document.getElementById("fullName").value;
+            var email=document.getElementById("email").value;
+            var message=document.getElementById("message").value;
+
+            var data="Full Name:" + fullName + "/n" + "Email:" + email + "/n" + "Message:" + message + "/n/n";
+
+            var blob=new Blob([data], {type:'text/plain'});
+            var url=window.URL.createObjectURL(blob);
+
+            var a=document.createElement("a");
+            a.href=url;
+            a.download="iletisim.txt";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(URL);
+            document.body.removeChild(a);
+        }
+
+        function clearForm() {
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</body>
+</html>                
